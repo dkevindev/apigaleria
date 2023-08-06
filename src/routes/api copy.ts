@@ -43,7 +43,7 @@ router.post('/upload', upload.array('images', 100), (req: Request, res: Response
       const photos = readPhotoData();
       for (const file of req.files as Express.Multer.File[]) {
         const id = photos.length > 0 ? photos[photos.length - 1].id + 1 : 1;
-        const img = `http://192.168.1.103/${file.filename}`;
+        const img = `http://192.168.1.103/public/${file.filename}`;
         photos.push({ id, img });
       }
       writePhotoData(photos);
