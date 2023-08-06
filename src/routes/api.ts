@@ -45,7 +45,7 @@ router.post('/upload', upload.array('images', 100), (req: Request, res: Response
       for (const file of req.files as Express.Multer.File[]) {
         const id = photos.length > 0 ? photos[photos.length - 1].id + 1 : 1;
         const type = file.mimetype.startsWith('video') ? 'video' : 'img'; // Verifica o tipo de mídia
-        const media = `http://192.168.1.103/${file.filename}`;
+        const media = `http://189.126.111.192/${file.filename}`;
         photos.push({ id, type, media });
       }
       writePhotoData(photos);
